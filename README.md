@@ -38,6 +38,10 @@ This tutorial allows you to:
 
 ## Check the SAP UCC System to make sure that it works
 
+* In SAP, use the transaction code `iwfnd/gw_client` to open the gateway client that manages requests (e.g., `/n/iwfnd/gw_client`).
+* As a request URI, run `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/$metadata`, this should give you a status code of 200 and status reason `OK`.
+* If anything goes wrong, check `/n/iwfnd/error_log`, to see the Error Log. This is also helpful for debugging the app later.
+* Use `/n/iwfnd/maint_service` to see an overview of all the services. If you are using an UCC system, **DO NOT CHANGE ANYTHING** without consulting with your UCC. Be responsible!
 
 
 ## Install the SAP Cloud Connector on your local machine
@@ -93,7 +97,9 @@ The assistant should build the project for you and open the project in Xcode.
 
 * If you want to run the app on your phone, you need to tell Xcode the Team for signing the app. Otherwise, run it in the simulator. 
 * Fix any issues that Xcode is complaining about (e.g., the Logger is declared private)
-* Install the app on your phone. 
+* Install the app on your phone. You should now be able to see the materials, plants, etc. of the GBI system. 
+
+[](img/SS1.jpg)
 
 
 
