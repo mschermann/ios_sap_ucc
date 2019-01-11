@@ -99,7 +99,7 @@ The assistant should build the project for you and open the project in Xcode.
 * Fix any issues that Xcode is complaining about (e.g., the Logger is declared private)
 * Install the app on your phone. You should now be able to see the materials, plants, etc. of the GBI system. 
 
-![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS1.jpg?s=200 "Screenshot 1")
+![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS1.jpg "Screenshot 1")
 ![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS2.jpg "Screenshot 2")
 ![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS3.jpg "Screenshot 3")
 
