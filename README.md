@@ -59,6 +59,7 @@ This is an abbreviated installation 'how-to'. For a full-depth version, I recomm
 In the SAP Cloud Platform Cockpit (I assume that you use the Neo Trial version), choose `Connectivity > Cloud Connectors` to confirm that a connection with your cloud connector exists. You should see a green `Connected`.
 * Go to `Connectivity > Destinations` to setup a destination for your UCC SAP system. You choose a name, the type should be `HTTP`, the URL should be the virtual host from the cloud connector plus `/sap/opu/odata` (confirm this with your UCC SAP system), the proxy type should be `On Premise`, use `Basic Authentication` and include your SAP login and password. 
 * You need to set additional properties based on the following table:
+
 | Key | Value | Explanation |
 |-----|-------|-------------|
 |sap-client| <Your client number> | You want to access your client only.|
