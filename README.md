@@ -10,6 +10,7 @@ This tutorial allows you to:
 * Install SAP Cloud Connector on your local machine via Docker
 * Setup SAP Cloud Connector
 * Setup the SAP Cloud Platform Cockpit
+* Setup the mobile services in the SAP Cloud Platform Cockpit
 * Use the SAP Cloud Platform SDK for iOS Assistant to build a small app that tests the connection.
 
 ## Prerequisites:
@@ -51,7 +52,7 @@ This is an abbreviated installation 'how-to'. For a full-depth version, I recomm
 * Wait a minute to allow the SAP Cloud Connector to start and then point your favorite browser to [https://localhost:8433](https://localhost:8433). The default user is `Administrator` with the standard password `manage`. You will be asked to change the password.
 
 ## Setup the SAP Cloud Connector
-* In the menu, choose `Connector`, and `+ Add Subaccount`. The Region is most likely `Europe (Rot) - Trial`. Enter your subaccount ID (which looks like pXXXXXXXXXXtrial) and the username is the same without `trial` at the end. If everything works, the statur should be green.
+* In the menu, choose `Connector`, and `+ Add Subaccount`. The Region is most likely `Europe (Rot) - Trial`. Enter your subaccount ID (which looks like `pXXXXXXXXXXtrial`) and the username is the same without `trial` at the end. If everything works, the statur should be green.
 * In the menu, choose `Cloud To On-Premise` and setup your UCC SAP system. Choose `ABAP System` or `SAP HANA`, Protocol is `HTTP`, `Internal host` is the hostname of the UCC system, `Internal port` is the port number of the UCC system. Set `Virtual Host` to `ucc` and `Virtual port` to the same port as your internal port. `Principal type` should be set to `None`. Check the availability of the internal host. The Check Result column should say `Reachable` in green letters. Next, set `/` as the available resource and ensure the the access policy is set to `Path and all sub-paths`. In the tab `Principal Propagation` you can trust everything.
 
 ## Setup the SAP Cloud Platform Cockpit
@@ -66,5 +67,33 @@ In the SAP Cloud Platform Cockpit (I assume that you use the Neo Trial version),
 |WebIDEEnabled|true| For testing purposed and WebIDE access|
 |WebIDESystem|<Your system id>| You need to identify your system|
 |WebIDEUsage| dev_abap, bsp_execute_abap, ui5_execute_abap, odata_abap, odata_gen, mobile, ui5_execute_abap | Defines how to use the system, **mobile** is important|
+
+* Check the connection to make sure it works. 
+* This is your starting point destination, which you can clone to create specific destinations to use in your apps. 
+* For instance, clone the destination, name it appropriately, and change the URL to include `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/`
+
+## Setup the mobile services in the SAP Cloud Platform Cockpit
+
+Choose Services from the menu and filter for `mobile`, choose `Mobile Services, std`. Go to the service. 
+
+* (For this step, I assume that you already have installed the SAP Cloud Platform SDK for iOS Assistant on your machine.) Go to `Important Links` and click on `Importing URLs directly (only supported by iOS Assistant)`. This should setup your assistant.
+* Choose `Destinations` from the menu and click on `New`, choose `Cloud Platform Destination`, choose the destination pointing to the `MMIM_MATERIAL_DATA_SRV`, and make sure that you add a Custom Header with `sap-client` for `Header Key` and your client number for `Header Value`. Everything else can be left as is. Finish and try to ping the destination. This should report `Ping successful`.
+
+## Use the SAP Cloud Platform SDK for iOS Assistant to build a starter app that tests the connection.
+
+Here, I assume that you have set up the SAP Cloud Platform SDK for iOS Assistant. Build the Sample Application and run it on your phone to ensure that everything is set up properly.
+
+* Choose `Create New` > `Create New Application`.
+* Your Cloud Cockpit Account should be there and highlighted. Next.
+* Provide a name and identifier for the app. Next.
+* Choose the destination that points to `MMIM_MATERIAL_DATA_SRV`. Next. Next.
+* Provide a product name. Next. Next. Finish.
+
+The assistant should build the project for you and open the project in Xcode. 
+
+* If you want to run the app on your phone, you need to tell Xcode the Team for signing the app. Otherwise, run it in the simulator. 
+* Fix any issues that Xcode is complaining about (e.g., the Logger is declared private)
+* Install the app on your phone. 
+
 
 
