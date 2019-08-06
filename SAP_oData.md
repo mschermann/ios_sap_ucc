@@ -32,13 +32,7 @@ I choose the transaction **'Post Goods Receipt for Purchase Order'** (Transactio
 
 **This process assumes that you have purchase orders in your SAP system that are currently waiting for delivery to happen (a.k.a. the goods receipt step).**
 
-Start the Network Recorder and execute the Transaction 'Post Goods Receipt for Purchase Order'. When you are done, the SAP system should present you with the text field for purchase orders and on the right side you should see the network recorder recording all the browser's calls to the SAP system.
-
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/MUQfKFzIOeU"
-frameborder="0"
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen></iframe>
+Start the Network Recorder and execute the Transaction 'Post Goods Receipt for Purchase Order'. When you are done, the SAP system should present you with the text field for purchase orders and on the right side you should see the network recorder recording all the browser's calls to the SAP system. [Here](https://youtu.be/cPc5enn_bYI) is a video that shows the process of the goods receipt transaction ([Link](https://youtu.be/cPc5enn_bYI)).
 
 The result should look like this.
 ![Recorded Goods Receipt Session](img/recorded_session.png)
