@@ -34,6 +34,12 @@ I choose the transaction **'Post Goods Receipt for Purchase Order'** (Transactio
 
 Start the Network Recorder and execute the Transaction 'Post Goods Receipt for Purchase Order'. When you are done, the SAP system should present you with the text field for purchase orders and on the right side you should see the network recorder recording all the browser's calls to the SAP system.
 
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU"
+frameborder="0"
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
+
 The result should look like this.
 ![Recorded Goods Receipt Session](img/recorded_session.png)
 
