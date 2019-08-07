@@ -449,6 +449,6 @@ This response confirms our activities. This means that we have successfully reco
 We have learned that we need the following transactions to record a goods receipt for a purchase order:
 
 1. `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV/PoHelpSet` shows us the open purchase orders.
-2. `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV/GR4PO_DL_Headers` shows us a selected purchase order.
+2. `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV/GR4PO_DL_Headers` shows us a selected purchase order and opens an inbound delivery (a.k.a. goods receipt).
 3. `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/MaterialStorLocHelps` shows us appropriate storage locations.
 4. Posting to `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV` will allow us to record a goods receipt.

@@ -53,7 +53,7 @@ This is an abbreviated installation 'how-to'. For a full-depth version, I recomm
 * In Terminal, go into the new directory with the `Dockerfile` and run `docker build -t sapcc .` to build the Docker container image (Do not forget the `.` at the end)
 * Create a Docker container from the image by executing `docker run -p 8443:8443 --name sapcc -d sapcc`
 * Start the Docker container with `docker start sapcc`
-* Wait a minute to allow the SAP Cloud Connector to start and then point your favorite browser to [https://localhost:84r3](https://localhost:8443). The default user is `Administrator` with the standard password `manage`. You will be asked to change the password.
+* Wait a minute to allow the SAP Cloud Connector to start and then point your favorite browser to [https://localhost:8443](https://localhost:8443). The default user is `Administrator` with the standard password `manage`. You will be asked to change the password.
 
 ## Setup the SAP Cloud Connector
 * In the menu, choose `Connector`, and `+ Add Subaccount`. The Region is most likely `Europe (Rot) - Trial`. Enter your subaccount ID (which looks like `pXXXXXXXXXXtrial`) and the username is the same without `trial` at the end. If everything works, the statur should be green.
