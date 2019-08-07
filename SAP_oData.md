@@ -1,8 +1,6 @@
 # How to reverse engineer the SAP oData API
 
-Unfortunately, I was not able to get a hold of any decent documentation for the SAP oData API. < Add what did I find>
-
-This left me with no other choice: I had to reverse engineer how SAP is using the oData API in its Fiori Apps.
+Unfortunately, I was not able to get a hold of any decent documentation for the SAP oData API. This left me with no other choice: I had to reverse engineer how SAP is using the oData API in its Fiori Apps.
 
 ## Log in to the SAP Easy Access and start the Fiori Launchpad
 
@@ -452,3 +450,7 @@ We have learned that we need the following transactions to record a goods receip
 2. `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV/GR4PO_DL_Headers` shows us a selected purchase order and opens an inbound delivery (a.k.a. goods receipt).
 3. `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/MaterialStorLocHelps` shows us appropriate storage locations.
 4. Posting to `/sap/opu/odata/sap/MMIM_GR4PO_DL_SRV` will allow us to record a goods receipt.
+
+## Links
+
+* Relevant oData services for recording goods receipt ([Link](https://blogs.sap.com/2017/06/13/enable-fiori-app-post-goods-receipt-for-purchase-order/))

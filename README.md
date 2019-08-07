@@ -1,8 +1,8 @@
 # Tutorial on how to start an iOS app that connects to a SAP S4 via SAP Cloud Connector
 
-This is a tutorial for the use of iOS and SAP in an educational context. This tutorial assumes that you are a customer of a SAP UCC (University Competence Center) and that you have access to a SAP system provided by your UCC. 
+This is a tutorial for the use of iOS and SAP in an educational context. This tutorial assumes that you are a customer of a SAP UCC (University Competence Center) and that you have access to a SAP system provided by your UCC.
 
-The objective of this tutorial is to jumpstart an iOS development project that connects to a UCC-hosted SAP system. We connect to the SAP system via Cloud Connector, because in typical productive environments, the SAP system would be behind a firewall and not directly accessible to mobile devices. 
+The objective of this tutorial is to jumpstart an iOS development project that connects to a UCC-hosted SAP system. We connect to the SAP system via Cloud Connector, because in typical productive environments, the SAP system would be behind a firewall and not directly accessible to mobile devices.
 
 This tutorial allows you to:
 
@@ -24,7 +24,7 @@ This tutorial allows you to:
 * Host name (e.g., systemname.cob.csuchico.edu)
 * Port number (e.g., 8022)
 * Client number (e.g., 465)
-* Login and password information 
+* Login and password information
 
 ### For access to the [SAP Cloud Platform Cockpit](https://account.hanatrial.ondemand.com/)
 
@@ -43,10 +43,12 @@ This tutorial allows you to:
 * If anything goes wrong, check `/n/iwfnd/error_log`, to see the Error Log. This is also helpful for debugging the app later.
 * Use `/n/iwfnd/maint_service` to see an overview of all the services. If you are using an UCC system, **DO NOT CHANGE ANYTHING** without consulting with your UCC. Be responsible!
 
+If you do not have access to an SAP system, you can follow this [tutorial](https://blogs.sap.com/2018/05/30/installing-sap-nw-abap-into-docker/) or [video](https://www.youtube.com/watch?v=H0GEg8r7P48) to install a developer version on your local machine (Warning: You need lots of hard disk space.). See this [GitHub repo](https://github.com/nzamani/sap-nw-abap-trial-docker) for more detail. You can find another set of instructions [here](https://github.com/tobiashofmann/sap-nw-abap-docker).
+
 
 ## Install the SAP Cloud Connector on your local machine
 
-This is an abbreviated installation 'how-to'. For a full-depth version, I recommend this [tutorial](https://github.com/nzamani/sap-cloud-connector-docker). There is even a YouTube video to follow.
+This is an abbreviated installation 'how-to'. For a full-depth version, I recommend this [tutorial](https://github.com/nzamani/sap-cloud-connector-docker). There is even a [YouTube video](https://www.youtube.com/channel/UCKa6I2UD-R-fB9ygHxw37UA) to follow. If you are interested in installing the SAP cloud connector directly on you machine, follow this [tutorial](https://developers.sap.com/tutorials/cp-connectivity-install-cloud-connector.html).
 
 * Open a terminal and run `docker --version`. If the machine returns a version number, you are good to go. If you get an error, check your Docker installation.
 * Download the `Dockerfile` from the folder `sapcc` to a directory on your local machine.
@@ -62,7 +64,7 @@ This is an abbreviated installation 'how-to'. For a full-depth version, I recomm
 ## Setup the SAP Cloud Platform Cockpit
 
 In the SAP Cloud Platform Cockpit (I assume that you use the Neo Trial version), choose `Connectivity > Cloud Connectors` to confirm that a connection with your cloud connector exists. You should see a green `Connected`.
-* Go to `Connectivity > Destinations` to setup a destination for your UCC SAP system. You choose a name, the type should be `HTTP`, the URL should be the virtual host from the cloud connector plus `/sap/opu/odata` (confirm this with your UCC SAP system), the proxy type should be `On Premise`, use `Basic Authentication` and include your SAP login and password. 
+* Go to `Connectivity > Destinations` to setup a destination for your UCC SAP system. You choose a name, the type should be `HTTP`, the URL should be the virtual host from the cloud connector plus `/sap/opu/odata` (confirm this with your UCC SAP system), the proxy type should be `On Premise`, use `Basic Authentication` and include your SAP login and password.
 * You need to set additional properties based on the following table:
 
 | Key | Value | Explanation |
@@ -72,13 +74,13 @@ In the SAP Cloud Platform Cockpit (I assume that you use the Neo Trial version),
 |WebIDESystem|<Your system id>| You need to identify your system|
 |WebIDEUsage| dev_abap, bsp_execute_abap, ui5_execute_abap, odata_abap, odata_gen, mobile, ui5_execute_abap | Defines how to use the system, **mobile** is important|
 
-* Check the connection to make sure it works. 
-* This is your starting point destination, which you can clone to create specific destinations to use in your apps. 
+* Check the connection to make sure it works.
+* This is your starting point destination, which you can clone to create specific destinations to use in your apps.
 * For instance, clone the destination, name it appropriately, and change the URL to include `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/`
 
 ## Setup the mobile services in the SAP Cloud Platform Cockpit
 
-Choose Services from the menu and filter for `mobile`, choose `Mobile Services, std`. Go to the service. 
+Choose Services from the menu and filter for `mobile`, choose `Mobile Services, std`. Go to the service.
 
 * (For this step, I assume that you already have installed the SAP Cloud Platform SDK for iOS Assistant on your machine.) Go to `Important Links` and click on `Importing URLs directly (only supported by iOS Assistant)`. This should setup your assistant.
 * Choose `Destinations` from the menu and click on `New`, choose `Cloud Platform Destination`, choose the destination pointing to the `MMIM_MATERIAL_DATA_SRV`, and make sure that you add a Custom Header with `sap-client` for `Header Key` and your client number for `Header Value`. Everything else can be left as is. Finish and try to ping the destination. This should report `Ping successful`.
@@ -93,15 +95,17 @@ Here, I assume that you have set up the SAP Cloud Platform SDK for iOS Assistant
 * Choose the destination that points to `MMIM_MATERIAL_DATA_SRV`. Next. Next.
 * Provide a product name. Next. Next. Finish.
 
-The assistant should build the project for you and open the project in Xcode. 
+The assistant should build the project for you and open the project in Xcode.
 
-* If you want to run the app on your phone, you need to tell Xcode the Team for signing the app. Otherwise, run it in the simulator. 
+* If you want to run the app on your phone, you need to tell Xcode the Team for signing the app. Otherwise, run it in the simulator.
 * Fix any issues that Xcode is complaining about (e.g., the Logger is declared private)
-* Install the app on your phone. You should now be able to see the materials, plants, etc. of the GBI system. 
+* Install the app on your phone. You should now be able to see the materials, plants, etc. of the GBI system.
 
 ![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS1.jpg "Screenshot 1")
 ![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS2.jpg "Screenshot 2")
 ![Screenshot](https://github.com/mschermann/ios_sap_ucc/raw/master/img/SS3.jpg "Screenshot 3")
 
+## Links
 
-
+* Understanding destinations in the SAP cloud platform ([Link](https://blogs.sap.com/2018/03/09/understanding-destination-types-available-in-sap-cloud-platform-mobile-service/))
+* Custom headers in destinations ([Link](https://answers.sap.com/questions/707778/denying-feature-access.html))
