@@ -34,7 +34,7 @@ This tutorial allows you to:
 ### For iOS Development
 
 * Download Xcode from the Mac App Store
-* Download the [SAP Cloud Platform SDK for iOS](https://developers.sap.com/topics/cloud-platform-sdk-for-ios.html)
+* Download the [SAP Cloud Platform SDK for iOS](https://developers.sap.com/topics/cloud-platform-sdk-for-ios.html). The full documentation for the SDK is [here](https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_SDK_FOR_IOS/Latest/en-US).
 
 ## Check the SAP UCC System to make sure that it works
 
@@ -109,3 +109,5 @@ The assistant should build the project for you and open the project in Xcode.
 
 * Understanding destinations in the SAP cloud platform ([Link](https://blogs.sap.com/2018/03/09/understanding-destination-types-available-in-sap-cloud-platform-mobile-service/))
 * Custom headers in destinations ([Link](https://answers.sap.com/questions/707778/denying-feature-access.html))
+* An video that introduces the SAP SDK for iOS ([Link](https://videos.cdn.sap.com/mobile/2017/sap-cloud-platform-sdk-for-ios-intro-mob.mp4
+))

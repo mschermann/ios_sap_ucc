@@ -454,3 +454,5 @@ We have learned that we need the following transactions to record a goods receip
 ## Links
 
 * Relevant oData services for recording goods receipt ([Link](https://blogs.sap.com/2017/06/13/enable-fiori-app-post-goods-receipt-for-purchase-order/))
+* Everything you need to know about oData ([Link](https://blogs.sap.com/2016/02/08/odata-everything-that-you-need-to-know-part-1/))
+* If you are interested in creating new services ([Link](https://blogs.sap.com/2014/04/27/step-by-step-development-guide-for-createdeepentity-operation/))
