@@ -34,7 +34,7 @@ This tutorial allows you to:
 ### For iOS Development
 
 * Download Xcode from the Mac App Store
-* Download the [SAP Cloud Platform SDK for iOS](https://developers.sap.com/topics/cloud-platform-sdk-for-ios.html). The full documentation for the SDK is [here](https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_SDK_FOR_IOS/Latest/en-US).
+* Download the [SAP Cloud Platform SDK for iOS](https://developers.sap.com/topics/cloud-platform-sdk-for-ios.html). The full documentation for the SDK is [here](https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_SDK_FOR_IOS/Latest/en-US). The direct link to the SDK is [here](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-ios-14485.html).
 
 ## Check the SAP UCC System to make sure that it works
 
