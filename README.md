@@ -25,6 +25,7 @@ This tutorial allows you to:
 * Port number (e.g., 8022)
 * Client number (e.g., 465)
 * Login and password information
+* `[Optional`] You need a local GUI to access the SAP Gateway. If you are an UCC customer, download the client from your UCC web site, e.g., [here](https://sap.cob.csuchico.edu/#/support/downloads) (You may need to log in)
 
 ### For access to the [SAP Cloud Platform Cockpit](https://account.hanatrial.ondemand.com/)
 
@@ -36,8 +37,9 @@ This tutorial allows you to:
 * Download Xcode from the Mac App Store
 * Download the [SAP Cloud Platform SDK for iOS](https://developers.sap.com/topics/cloud-platform-sdk-for-ios.html). The full documentation for the SDK is [here](https://help.sap.com/viewer/product/SAP_CLOUD_PLATFORM_SDK_FOR_IOS/Latest/en-US). The direct link to the SDK is [here](https://www.sap.com/developer/trials-downloads/additional-downloads/sap-cloud-platform-sdk-for-ios-14485.html).
 
-## Check the SAP UCC System to make sure that it works
+## Check the SAP UCC System to make sure that it works `[Optional`]
 
+* You need a local GUI to access the SAP Gateway Client.
 * In SAP, use the transaction code `iwfnd/gw_client` to open the gateway client that manages requests (e.g., `/n/iwfnd/gw_client`).
 * As a request URI, run `/sap/opu/odata/sap/MMIM_MATERIAL_DATA_SRV/$metadata`, this should give you a status code of 200 and status reason `OK`.
 * If anything goes wrong, check `/n/iwfnd/error_log`, to see the Error Log. This is also helpful for debugging the app later.

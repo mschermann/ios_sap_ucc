@@ -4,37 +4,46 @@ FROM centos:latest
 # This file is based on the great work by Nabi Zamani (https://github.com/nzamani).
 
 # Install a basic centos linux and update everything.
-RUN yum -y upgrade
-RUN yum -y install initscripts which unzip wget net-tools
+RUN yum -y update; yum clean all
+RUN yum -y install initscripts which unzip wget net-tools less; yum clean all
 
-# If you want to install the latest version of the cloud connector, update these version numbers. 
+# If you want to install the latest version of the cloud connector, update these version numbers.
 # You will find the latest version here: https://tools.hana.ondemand.com/#cloud
 # You need to quickly download the Linux version to obtain the Patch level for the cloud connector.
 
-ARG SAPCC_VERSION=2.11.2
-ARG SAPCC_PATCH=7
-ARG SAPJVM_VERSION=8.1.045
-
 # Get the cloud connector
 # If you run into error, check the URL for changed names or locations.
-RUN wget --no-check-certificate --no-cookies \ 
---header "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt; \ 
-path=/;" -S https://tools.hana.ondemand.com/additional/sapcc-$SAPCC_VERSION-linux-x64.zip
+#
+# URL AS OF AUG 9, 2019
+# https://tools.hana.ondemand.com/additional/sapcc-2.12.0.1-linux-x64.zip
+ARG SAPCC_VERSION=2.12.0
+ARG SAPCC_PATCH=1
+
+RUN wget --no-check-certificate --no-cookies \
+--header "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt; \
+path=/;" -S https://tools.hana.ondemand.com/additional/sapcc-$SAPCC_VERSION.$SAPCC_PATCH-linux-x64.zip
 
 # Get the SAP Java Virtual Machine
 # If you run into error, check the URL for changed names or locations.
-RUN wget --no-check-certificate --no-cookies \ 
---header "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt; \ 
+#
+# URL AS OF AUG 9, 2019
+# https://tools.hana.ondemand.com/additional/sapjvm-8.1.055-linux-x64.rpm
+ARG SAPJVM_VERSION=8.1.055
+ARG SAPCC_MIN_PATCH=15
+
+RUN wget --no-check-certificate --no-cookies \
+--header "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt; \
 path=/;" -S https://tools.hana.ondemand.com/additional/sapjvm-$SAPJVM_VERSION-linux-x64.rpm
 
 # Install everything
-RUN unzip sapcc-$SAPCC_VERSION-linux-x64.zip
-RUN rpm -i sapjvm-$SAPJVM_VERSION-linux-x64.rpm && rpm -i com.sap.scc-ui-$SAPCC_VERSION-$SAPCC_PATCH.x86_64.rpm
+RUN unzip sapcc-$SAPCC_VERSION.$SAPCC_PATCH-linux-x64.zip
+RUN rpm -i sapjvm-$SAPJVM_VERSION-linux-x64.rpm &&\
+ rpm -i com.sap.scc-ui-$SAPCC_VERSION-$SAPCC_MIN_PATCH.x86_64.rpm
 
-# Install the daemon
-RUN service scc_daemon stop && chsh -s /bin/bash sccadmin
+# Start the Cloud Connector
+RUN chsh -s /bin/bash sccadmin
 
-# In the vanilla installation, the cloud connector runs on port 84
+# In the vanilla installation, the cloud connector runs on port 8443
 EXPOSE 8443
 USER sccadmin
 WORKDIR /opt/sap/scc
