@@ -74,7 +74,7 @@ In the SAP Cloud Platform Cockpit (I assume that you use the Neo Trial version),
 |sap-client| `Your client number` | You want to access your client only.|
 |WebIDEEnabled|true| For testing purposed and WebIDE access|
 |WebIDESystem|`<Your system id>`| You need to identify your system|
-|WebIDEUsage| dev_abap, bsp_execute_abap, ui5_execute_abap, odata_abap, odata_gen, mobile, ui5_execute_abap | Defines how to use the system, **mobile** is important|
+|WebIDEUsage| dev_abap, bsp_execute_abap, ui5_execute_abap, odata_abap, odata_gen, mobile | Defines how to use the system, **mobile** is important|
 
 * Check the connection to make sure it works.
 * This is your starting point destination, which you can clone to create specific destinations to use in your apps.
