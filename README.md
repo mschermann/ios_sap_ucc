@@ -7,3 +7,4 @@ Sections:
 2. [Use the OData API with Postman](SAP_Postman.md)
 3. [A sample project of a iOS app of a Goods Receipt Scanner](Goods_Receipt_Scanner.md)
 4. [Setup an enterprise-level environment for iOS Development with the SAP SDK for iOS](iOS_Cloud_Connector.md)
+5. A Goods Receipt Scanner using the SAP SDK for iOS (coming soon).
